@@ -56,6 +56,10 @@ const updateinfo = async (req, res) => {
     await updateEm(idem, emnum, lname, fname, ssn, payrate, idpayrate, vcd, paidtodate, paidlastyear);
 
 
+
+
+
+
     /////asdad
     res.redirect('/home')
 
