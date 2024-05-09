@@ -61,6 +61,7 @@ const deleteEmployee = async (req, res) => {
     const employeeid = req.params.id;
     let employee = await getIdEmployee(employeeid);
     res.render('delete.ejs', { employee_delete: employee })
+
 }
 const deleteinfo = async (req, res) => {
     const id = req.body.idem;
