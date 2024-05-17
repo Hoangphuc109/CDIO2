@@ -1,6 +1,4 @@
 const { json } = require('express');
-const { Request } = require('mssql');
-const connect_sqlsever = require('../config/connect_sqlsever');
 
 const { getallusers, getIdEmployee, createEm, updateEm, deleteEm,
     //-----------------------------------------------------------
@@ -8,9 +6,6 @@ const { getallusers, getIdEmployee, createEm, updateEm, deleteEm,
     //===========================================================
 } = require('../services/sevice')
 
-const {
-    getallbenefit
-} = require('../services/sevice_sqlsever')
 
 //test first
 const gethp = (req, res) => {
@@ -30,8 +25,8 @@ const create = (req, res) => {
 
 ///->>>>gethomecontroler lỗi k cần quan tâm 
 const gethomepage = async (req, res) => {
-    let results = await getallusers();
-    return res.render('home.ejs', { ListEmployee: results })
+    let product = await getallusers();
+    return res.json({ product });
 }
 
 const createEmployee = async (req, res) => {
