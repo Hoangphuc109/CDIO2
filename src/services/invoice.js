@@ -8,7 +8,7 @@ const queryGetAllInvoices = async () => {
 
 const queryCreateInvoice = async (idInvoice, idUser, total, payment, state, isDone, userName, email, phoneNumber, address, users_id) => {
     let [results, fields] = await connection.query(
-        'INSERT INTO `rice_4_man`.`Invoice` (`idInvoice`,`idUser`, `total`, `payment`, `state`, `isDone`, `userName`, `email`, `phoneNumber`, `address`, `users_id`, `purchaseDate`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)',
+        'INSERT INTO `rice_4_man`.`Invoice` (`idInvoice`, `idUser`, `total`, `purchaseDate`, `payment`, `state`, `isDone`, `userName`, `email`, `phoneNumber`, `address`, `users_id`) VALUES (?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?, ?, ?)',
         [idInvoice, idUser, total, payment, state, isDone, userName, email, phoneNumber, address, users_id]
     );
     return results;

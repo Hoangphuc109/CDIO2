@@ -14,7 +14,7 @@ const { getallusers,
 const getUser = async (req, res) => {
     let results = await getallusers();
     // return res.render('userList.ejs', { ListEmployee: results })
-    return res.json({ ListEmployee: results })
+    return res.json({ user: results })
 
 }
 //function

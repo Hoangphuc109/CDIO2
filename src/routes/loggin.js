@@ -9,9 +9,9 @@ const router = express.Router();
 //-------------------------------------
 //
 
-router.post('/', getLoggInPage)
+router.get('/', getLoggInPage)
 
-router.post('/login', loginUser)
+router.post('/loginUser', loginUser)
 
 
 module.exports = router;

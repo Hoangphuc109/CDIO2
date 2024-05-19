@@ -5,12 +5,14 @@ const { //get
     updateInvoiceDetail,
     deleteInvoiceDetail
 } = require('../controlers/invoicedetail');
+const { upload } = require('../midleware/midleware')
+
 const router = express.Router();
 //-------------------------------------
 
 router.get('/', getAllInvoiceDetails);
-router.post('/createInvoiceDetail', createInvoiceDetail);
-router.put('/updateInvoiceDetail', updateInvoiceDetail);
+router.post('/createInvoiceDetail', upload.single('urlImage'), createInvoiceDetail);
+router.put('/updateInvoiceDetail', upload.single('urlImage'), updateInvoiceDetail);
 router.delete('/deleteInvoiceDetail/:id', deleteInvoiceDetail);
 
 

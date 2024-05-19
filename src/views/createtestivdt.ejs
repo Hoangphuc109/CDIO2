@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Invoice Details</title>
+    <link rel="stylesheet" href="../public/css/home.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <style>
+            a.createUser {
+                background-color: #04AA6D;
+                color: white;
+            }
+        </style>
+        <div class="form">
+            <form action="/invoicedetail/createInvoiceDetail" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend class="nav_form">Form add invoice details</legend>
+                    <div class="inputgroup">
+                        <label for="idInvoiceDetails">ID Invoice Details</label>
+                        <input type="number" id="idInvoiceDetails" name="idInvoiceDetails"><br><br>
+                    </div>
+                    <div class="inputgroup">
+                        <label for="idInvoice">ID Invoice</label>
+                        <input type="number" id="idInvoice" name="idInvoice"><br><br>
+                    </div>
+                    <div class="inputgroup">
+                        <label for="idProduct">ID Product</label>
+                        <input type="number" id="idProduct" name="idProduct"><br><br>
+                    </div>
+                    <div class="inputgroup">
+                        <label for="nameProduct">Name Product</label>
+                        <input type="text" id="nameProduct" name="nameProduct"><br><br>
+                    </div>
+                    <div class="inputgroup">
+                        <label for="quanity">Quantity</label>
+                        <input type="number" id="quanity" name="quanity"><br><br>
+                    </div>
+                    <div class="inputgroup">
+                        <label for="price">Price</label>
+                        <input type="number" step="0.01" id="price" name="price"><br><br>
+                    </div>
+                    <div class="inputgroup">
+                        <label for="urlImage">URL Image</label>
+                        <input type="file" id="urlImage" name="urlImage"><br><br>
+                    </div>
+                    <div class="inputgroup">
+                        <label for="Invoice_idInvoice">Invoice ID</label>
+                        <input type="number" id="Invoice_idInvoice" name="Invoice_idInvoice"><br><br>
+                    </div>
+                    <div class="inputgroup">
+                        <label for="Product_idProduct">Product ID</label>
+                        <input type="number" id="Product_idProduct" name="Product_idProduct"><br><br>
+                    </div>
+                    <div>
+                        <button type="submit">SAVE</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+</body>
+
+</html>
