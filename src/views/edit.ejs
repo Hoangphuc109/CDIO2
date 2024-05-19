@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,71 +9,78 @@
 </head>
 
 <body>
-    <div class="topnav">
-        <a href="/home">Home</a>
-        <a href="/create">Create Employee</a>
-        <a href="/payrate">Pay Rates</a>
+    <%- include('partials/header') %>
 
-    </div>
-    <div class="form">
-        <form action="/updateinfo" method="post">
-            <fieldset>
-                <legend class="nav_form">Form Update Employee</legend>
-                <div>
-                    <div class="inputgroup none">
-                        <label for="idem">ID employee:</label>
-                        <input type="number" id="idem" name="idem" value="<%= employee_update['idEmployee']%>"><br><br>
-                    </div>
-                    <div class="inputgroup">
-                        <label for="emnum">Employee Number:</label>
-                        <input type="number" id="emnum" name="emnum"
-                            value="<%= employee_update['Employee Number']%>"><br><br>
-                    </div>
-                    <div class="inputgroup">
-                        <label for="lname">Last name:</label>
-                        <input type="text" id="lname" name="lname" value="<%= employee_update['Last Name'] %>"><br><br>
-                    </div>
-                    <div class="inputgroup">
-                        <label for="fname">first name:</label>
-                        <input type="text" id="fname" name="fname" value="<%= employee_update['First Name']%>"><br><br>
-                    </div>
-                    <div class="inputgroup">
-                        <label for="ssn">SSN:</label>
-                        <input type="number" id="ssn" name="ssn" value="<%= employee_update.SSN%>"><br><br>
-                    </div>
-                    <div class="inputgroup">
-                        <label for="payrate">Pay Rate:</label>
-                        <input type="text" id="payrate" name="payrate"
-                            value="<%= employee_update['Pay Rate']%>"><br><br>
-                    </div>
-                    <div class="inputgroup">
-                        <label for="idpayrate">Pay Rates_idPay Rates:</label>
-                        <input type="number" id="idpayrate" name="idpayrate"
-                            value="<%= employee_update['Pay Rates_idPay Rates']%>"><br><br>
-                    </div>
-                    <div class="inputgroup">
-                        <label for="vcd">Vacation Days:</label>
-                        <input type="number" id="vcd" name="vcd" value="<%= employee_update['Vacation Days']%>"><br><br>
-                    </div>
-                    <div class="inputgroup">
-                        <label for="paidtodate">Paid To Date:</label>
-                        <input type="number" id="paidtodate" name="paidtodate"
-                            value="<%= employee_update['Paid To Date']%>"><br><br>
-                    </div>
-                    <div class="inputgroup">
-                        <label for="paidlastyear">Paid Last Year:</label>
-                        <input type="number" id="paidlastyear" name="paidlastyear"
-                            value="<%= employee_update['Paid Last Year']%>"><br><br>
-                    </div>
-
+        <div class="form">
+            <form action="/updateUser" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend class="nav_form">Form Update Employee</legend>
                     <div>
-                        <button>SAVE</button>
+                        <div class="inputgroup none">
+                            <label for="id">ID:</label>
+                            <input type="number" id="id" name="id" value="<%= user['id'] %>"><br><br>
+                        </div>
+                        <div class="inputgroup">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" value="<%= user['name'] %>"><br><br>
+                        </div>
+                        <div class="inputgroup">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" value="<%= user['email'] %>"><br><br>
+                        </div>
+                        <div class="inputgroup">
+                            <label for="phone">Phone:</label>
+                            <input type="text" id="phone" name="phone" value="<%= user['phone'] %>"><br><br>
+                        </div>
+                        <div class="inputgroup">
+                            <label for="avatar">Avatar:</label>
+                            <img src="../public/img/<%= user.avatar %>" alt="avatar" style="width:50px;height:50px;">
+                            <input type="file" id="avatar" name="avatar" value="<%= user['avatar'] %>"><br><br>
+                        </div>
+                        <div class="inputgroup">
+                            <label for="address">Address:</label>
+                            <textarea id="address" name="address"><%= user['address'] %></textarea><br><br>
+                        </div>
+                        <div class="inputgroup">
+                            <label for="role">Role:</label>
+                            <input type="number" id="role" name="role" value="<%= user['role'] %>"><br><br>
+                        </div>
+                        <div class="inputgroup">
+                            <label for="active">Active:</label>
+                            <input type="number" id="active" name="active" value="<%= user['active'] %>"><br><br>
+                        </div>
+                        <div class="inputgroup">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password"
+                                value="<%= user['password'] %>"><br><br>
+                        </div>
+                        <div class="inputgroup">
+                            <label for="email_verified_at">Email Verified At:</label>
+                            <input type="datetime" id="email_verified_at" name="email_verified_at"
+                                value="<%= user['email_verified_at'] %>"><br><br>
+                        </div>
+                        <div class="inputgroup">
+                            <label for="remember_token">Remember Token:</label>
+                            <input type="text" id="remember_token" name="remember_token"
+                                value="<%= user['remember_token'] %>"><br><br>
+                        </div>
+                        <div class="inputgroup">
+                            <label for="created_at">Created At:</label>
+                            <input type="datetime" id="created_at" name="created_at"
+                                value="<%= user['created_at'] %>"><br><br>
+                        </div>
+                        <div class="inputgroup">
+                            <label for="updated_at">Updated At:</label>
+                            <input type="datetime" id="updated_at" name="updated_at"
+                                value="<%= user['updated_at'] %>"><br><br>
+                        </div>
+                        <div>
+                            <button>SAVE</button>
+                        </div>
                     </div>
-                </div>
-            </fieldset>
-        </form>
-
-    </div>
+                </fieldset>
+            </form>
+        </div>
 </body>
 
 </html>

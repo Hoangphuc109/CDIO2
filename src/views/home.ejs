@@ -4,19 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="stylesheet" href="../public/css/home.css">
 </head>
 
 <body>
-    <div class="topnav">
-        <form action="/login" method="get">
-            <button>Login</button>
-        </form>
-        <form action="/getCreateUser" method="get">
-            <button>Create</button>
-        </form>
-        <img class="img_auturm" src="../public/img/Auturm.png" alt="">
-    </div>
+    <%- include('partials/header') %>
+        <style>
+            a.home {
+                background-color: #04AA6D;
+                color: white;
+            }
+        </style>
+        <div class="topnav">
+            <form action="/login" method="get">
+                <button>Login</button>
+            </form>
+            <form action="/getCreateUser" method="get">
+                <button>Create</button>
+            </form>
+            <img class="img_auturm" src="../public/img/Auturm.png" alt="">
+        </div>
 </body>
 
 </html>

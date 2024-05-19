@@ -5,24 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/styles.css"> <!-- Assuming you have a CSS file in your public directory -->
+    <link rel="stylesheet" href="../public/css/home.css">
 </head>
 
 <body>
-    <h1>Login</h1>
-    <form action="/login" method="post">
-        <div>
-            <label for="username">Email:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div>
-            <button type="submit">Login</button>
-        </div>
-    </form>
+    <%- include('partials/header') %>
+        <style>
+            a.login {
+                background-color: #04AA6D;
+                color: white;
+            }
+        </style>
+        <h1>Login</h1>
+        <form action="/login" method="post">
+            <div>
+                <label for="username">Email:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <button type="submit">Login</button>
+            </div>
+        </form>
 </body>
 
 </html>
