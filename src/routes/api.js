@@ -1,43 +1,28 @@
 const express = require('express');
-const { //get
-    getLoggInPage, getCreateUser, getHomePage, getUser, getUserId,
-    getPost, getContact,
-    //loggin
-    loginUser,
-    //  function create
-    createUser,
-    //delete
-    deleteUser,
-    //update
-    updateUserById, updatePost, updateContact,
-} = require('../controlers/controler');
-const { upload } = require('../midleware/midleware')
-const router = express.Router();
-//-------------------------------------
-//
-router.get('/home', getHomePage)
-router.get('/posts', getPost)
-router.get('/contact', getContact)
-router.get('/userList', getUser)
-router.get('/login', getLoggInPage)
-router.post('/login', loginUser)
-router.get('/getCreateUser', getCreateUser)
-// router.post('/createUser', createUser)
-router.post('/createUser', upload.single('avatar'), createUser)
-//delete
-router.post('/deleteUser/:id', getUserId)
-router.post('/deleteUser', deleteUser)
-//update
-router.post('/updateUser/:id', getUserId)
-router.post('/updateUser', upload.single('avatar'), updateUserById)
-router.post('/updatePost', updatePost)
-router.post('/updateContact', updateContact)
+const users = require('./user.js')
+const posts = require('./posts.js')
+const contact = require('./contact.js')
+const loggin = require('./loggin.js')
+const invoice = require('./invoice.js')
+const invoiceDetails = require('./invoicedetail.js')
 
 
 
+const router = express.Router()
+
+
+router.use('/users', users)
+
+router.use('/posts', posts)
+
+router.use('/contact', contact)
+
+router.use('/loggin', loggin)
+
+router.use('/invoice', invoice)
+
+router.use('/invoicedetail', invoiceDetails)
 
 
 
-
-
-module.exports = router;
+module.exports = router

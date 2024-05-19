@@ -32,10 +32,10 @@ const getUserById = async (id) => {
 }
 
 //create
-const queryCreateUser = async (id, name, email, phone, avatar, address, role, active, password, email_verified_at, remember_token,) => {
+const queryCreateUser = async (id, name, email, phone, avatar, address, role, active, password, remember_token,) => {
     let [results, fields] = await connection.query(
         'INSERT INTO `rice_4_man`.`users` (`id`, `name`, `email`, `phone`,`avatar`,`address`, `role`, `active`, `password`,`email_verified_at`,`remember_token`,`created_at`,`updated_at` ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)',
-        [id, name, email, phone, avatar, address, role, active, password, email_verified_at, remember_token,],
+        [id, name, email, phone, avatar, address, role, active, password, remember_token,],
     );
 }
 
@@ -67,7 +67,7 @@ const deleteUserById = async (id) => {
 
 const deletePostById = async (id) => {
     let [results, fields] = await connection.query(
-        'DELETE FROM `rice_4_man`.`posts`WHERE `id` = ?;',
+        'DELETE FROM `rice_4_man`.`posts`WHERE `idPots` = ?;',
         [id]
     )
 }
