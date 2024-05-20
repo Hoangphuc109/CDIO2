@@ -1,6 +1,6 @@
 const { json } = require('express');
 
-const { getAllcontact,
+const { getAllcontact, getContactById,
     //create
     queryCreateContact,
     //delete
@@ -14,6 +14,23 @@ const getContact = async (req, res) => {
     let results = await getAllcontact();
     return res.json({ Contact: results })
 }
+
+
+const getContactId = async (req, res) => {
+    try {
+        const contactId = req.params.id;
+        let contact = await getContactById(contactId);
+        if (contact) {
+            res.json({ contact });
+        } else {
+            res.status(404).json({ error: 'Contact not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+
 //function
 const createContact = async (req, res) => {
     let { id, name, logo, email, hotline, address, description, active } = req.body;
@@ -52,7 +69,7 @@ const updateContact = async (req, res) => {
 // avatar, address,email_verified_at,remember_token,created_at,updated_at,
 module.exports = {
     //get
-    getContact,
+    getContact, getContactId,
     //create
     createContact,
     //delete

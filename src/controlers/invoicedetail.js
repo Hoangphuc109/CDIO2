@@ -1,5 +1,5 @@
 const {
-    queryGetAllInvoiceDetails,
+    queryGetAllInvoiceDetails, getInvoiceDetailssById,
     queryCreateInvoiceDetail,
     queryUpdateInvoiceDetail,
     queryDeleteInvoiceDetail
@@ -7,13 +7,19 @@ const {
 const getAllInvoiceDetails = async (req, res) => {
     try {
         let results = await queryGetAllInvoiceDetails();
-        // return res.json({ invoiceDetails: results });
-        return res.render('createtestivdt')
+        return res.json({ invoiceDetails: results });
+        // return res.render('createtestivdt')
     } catch (error) {
         console.error('Error fetching invoice details:', error);
         return res.status(500).send('Internal Server Error');
     }
 };
+
+const getInvoiceDetailsId = async (req, res) => {
+    const InvoiceDetailsid = req.params.id;
+    let InvoiceDetails = await getInvoiceDetailssById(InvoiceDetailsid);
+    return res.json({ InvoiceDetails })
+}
 
 const createInvoiceDetail = async (req, res) => {
     let { idInvoiceDetails, idInvoice, idProduct, nameProduct, quanity, price, Invoice_idInvoice, Product_idProduct } = req.body;
@@ -52,7 +58,7 @@ const deleteInvoiceDetail = async (req, res) => {
 };
 
 module.exports = {
-    getAllInvoiceDetails,
+    getAllInvoiceDetails, getInvoiceDetailsId,
     createInvoiceDetail,
     updateInvoiceDetail,
     deleteInvoiceDetail

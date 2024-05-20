@@ -10,7 +10,7 @@ const gettype = async (req, res) => {
 const gettypeid = async (idType) => {
     let [results, fields] = await connection.query('SELECT * FROM rice_4_man.producttype WHERE idType = ?;', [idType])
     let type = results && results.length > 0 ? results[0] : {}
-    return results
+    return type
 }
 
 //Add Product Type
@@ -25,7 +25,7 @@ const updatetype = async (idType, nameType, slug, order, anHien) => {
 
 //Delete Product Type
 const deletetype = async (idType) => {
-    let[results, fields] = await connection.query('DELETE FROM `rice_4_man`.`ProductType` WHERE idType =?;', [idType])
+    let [results, fields] = await connection.query('DELETE FROM `rice_4_man`.`ProductType` WHERE idType =?;', [idType])
 }
 
 module.exports = {

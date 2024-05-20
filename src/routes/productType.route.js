@@ -1,5 +1,5 @@
 const express = require('express')
-const {getType, addType, updateType, deleteType} = require ('../controlers/productType.controller')
+const { getType, addType, updateType, deleteType } = require('../controlers/productType.controller')
 
 const router = express.Router()
 
@@ -8,8 +8,8 @@ router.get('/', getType)
 //Add Product Type
 router.post('/add', addType)
 //Update Product Type 
-router.put('/update/:idType')
+router.put('/update/:idType', updateType)
 //Delete Product Type
-router.delete('/delete/:idType')
+router.delete('/delete/:idType', deleteType)
 
 module.exports = router

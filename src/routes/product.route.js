@@ -12,9 +12,9 @@ const { upload } = require('../midleware/midleware')
 
 router.get('/', getProducts)
 //Get Product by Type
-router.get('/type/:idType', getProductType)
+router.get('/:idType', getProductType)
 //Get Product by Id
-router.get('/id/:idProduct', getProductId)
+router.get('/:idProduct', getProductId)
 //Get Product Noi bat
 router.get('/noibat', getProductNB)
 //Add Product

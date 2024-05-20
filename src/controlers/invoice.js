@@ -1,6 +1,6 @@
 const express = require('express');
 const {
-    queryGetAllInvoices,
+    queryGetAllInvoices, getInvoicesById,
     queryCreateInvoice,
     queryUpdateInvoice,
     queryDeleteInvoice,
@@ -14,7 +14,11 @@ const getAllInvoices = async (req, res) => {
         return res.status(500).send('Internal Server Error');
     }
 };
-
+const getInvoiceId = async (req, res) => {
+    const Invoiceid = req.params.id;
+    let Invoice = await getInvoicesById(Invoiceid);
+    return res.json({ Invoice })
+}
 const createInvoice = async (req, res) => {
     let { idInvoice, idUser, total, payment, state, isDone, userName, email, phoneNumber, address, users_id } = req.body;
     try {
@@ -49,7 +53,7 @@ const deleteInvoice = async (req, res) => {
 };
 
 module.exports = {
-    getAllInvoices,
+    getAllInvoices, getInvoiceId,
     createInvoice,
     updateInvoice,
     deleteInvoice,

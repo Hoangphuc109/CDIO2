@@ -1,6 +1,6 @@
 const express = require('express');
 const { //get
-    getUser,
+    getUser, getUserId,
 
     //  function create
     createUser,
@@ -15,7 +15,9 @@ const router = express.Router();
 
 router.get('/', getUser)
 
-// router.post('/createUser', createUser)
+router.get('/:id', getUserId)
+
+
 router.post('/createUser', upload.single('avatar'), createUser)
 
 

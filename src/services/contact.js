@@ -6,7 +6,15 @@ const getAllcontact = async () => {
     return results
 }
 
-
+const getContactById = async (id) => {
+    try {
+        let [results, fields] = await connection.query('SELECT * FROM `contact` WHERE id = ?', [id]);
+        return results[0];
+    } catch (error) {
+        console.error('Database query failed: ', error);
+        throw error;
+    }
+};
 
 //create
 
@@ -41,7 +49,7 @@ const queryUpdateContact = async (id, name, logo, email, hotline, address, descr
 
 module.exports = {
     //get
-    getAllcontact,
+    getAllcontact, getContactById,
     //create
     queryCreateContact,
     //delete

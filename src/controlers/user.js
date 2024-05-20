@@ -1,6 +1,6 @@
 const { json } = require('express');
 
-const { getallusers,
+const { getallusers, getUsersById,
 
     //create
     queryCreateUser,
@@ -16,6 +16,12 @@ const getUser = async (req, res) => {
     // return res.render('userList.ejs', { ListEmployee: results })
     return res.json({ user: results })
 
+}
+
+const getUserId = async (req, res) => {
+    const userid = req.params.id;
+    let user = await getUsersById(userid);
+    return res.json({ user })
 }
 //function
 
@@ -59,7 +65,7 @@ const updateUserById = async (req, res) => {
 // avatar, address,email_verified_at,remember_token,created_at,updated_at,
 module.exports = {
     //get
-    getUser,
+    getUser, getUserId,
     //  function create
     createUser,
     //delete

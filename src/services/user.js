@@ -6,6 +6,10 @@ const getallusers = async () => {
     return results
 }
 
+const getUsersById = async (id) => {
+    let [results, fields] = await connection.query('SELECT * FROM `rice_4_man`.`users` WHERE id = ?;', [id])
+    return results
+}
 
 //create
 const queryCreateUser = async (id, name, email, phone, avatar, address, role, active, password, remember_token,) => {
@@ -42,7 +46,7 @@ const queryUpdateUser = async (id, name, email, phone, avatar, address, role, ac
 
 module.exports = {
     //get
-    getallusers,
+    getallusers, getUsersById,
     //create
     queryCreateUser,
     //delete

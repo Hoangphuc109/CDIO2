@@ -12,6 +12,11 @@ const queryCreateInvoiceDetail = async (idInvoiceDetails, idInvoice, idProduct, 
     return results;
 };
 
+const getInvoiceDetailssById = async (id) => {
+    let [results, fields] = await connection.query('SELECT * FROM `rice_4_man`.`InvoiceDetails` WHERE idInvoiceDetails = ?;', [id])
+    return results
+}
+
 const queryUpdateInvoiceDetail = async (idInvoiceDetails, idInvoice, idProduct, nameProduct, quanity, price, urlImage, Invoice_idInvoice, Product_idProduct) => {
 
     let query = 'UPDATE `rice_4_man`.`InvoiceDetails` SET `idInvoice` = ?, `idProduct` = ?, `nameProduct` = ?, `quanity` = ?, `price` = ?, `Invoice_idInvoice` = ?, `Product_idProduct` = ? WHERE `idInvoiceDetails` = ?';
@@ -34,7 +39,7 @@ const queryDeleteInvoiceDetail = async (idInvoiceDetails) => {
 };
 
 module.exports = {
-    queryGetAllInvoiceDetails,
+    queryGetAllInvoiceDetails, getInvoiceDetailssById,
     queryCreateInvoiceDetail,
     queryUpdateInvoiceDetail,
     queryDeleteInvoiceDetail

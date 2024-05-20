@@ -1,6 +1,7 @@
 const { json } = require('express');
 
-const { getAllPosts, queryCreatePosts, deletePostById, queryUpdatePost,
+const { getAllPosts, getpostsById,
+    queryCreatePosts, deletePostById, queryUpdatePost,
 
     //===========================================================
 } = require('../services/posts')
@@ -11,6 +12,12 @@ const { getAllPosts, queryCreatePosts, deletePostById, queryUpdatePost,
 const getPost = async (req, res) => {
     let results = await getAllPosts();
     return res.json({ Posts: results })
+}
+
+const getPostId = async (req, res) => {
+    const postid = req.params.id;
+    let post = await getpostsById(postid);
+    return res.json({ post })
 }
 
 const createPosts = async (req, res) => {
@@ -51,7 +58,7 @@ const updatePost = async (req, res) => {
 // avatar, address,email_verified_at,remember_token,created_at,updated_at,
 module.exports = {
     //get
-    getPost,
+    getPost, getPostId,
     //create
     createPosts,
     //delete

@@ -6,6 +6,11 @@ const queryGetAllInvoices = async () => {
     return results;
 };
 
+const getInvoicesById = async (id) => {
+    let [results, fields] = await connection.query('SELECT * FROM `rice_4_man`.`Invoice` WHERE idInvoice = ?;', [id])
+    return results
+}
+
 const queryCreateInvoice = async (idInvoice, idUser, total, payment, state, isDone, userName, email, phoneNumber, address, users_id) => {
     let [results, fields] = await connection.query(
         'INSERT INTO `rice_4_man`.`Invoice` (`idInvoice`, `idUser`, `total`, `purchaseDate`, `payment`, `state`, `isDone`, `userName`, `email`, `phoneNumber`, `address`, `users_id`) VALUES (?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?, ?, ?)',
@@ -30,7 +35,7 @@ const queryDeleteInvoice = async (idInvoice) => {
     return results;
 };
 module.exports = {
-    queryGetAllInvoices,
+    queryGetAllInvoices, getInvoicesById,
     queryCreateInvoice,
     queryUpdateInvoice,
     queryDeleteInvoice,

@@ -5,7 +5,10 @@ const getAllPosts = async () => {
     let [results, fields] = await connection.query('SELECT * FROM `rice_4_man`.`posts`;')
     return results
 }
-
+const getpostsById = async (id) => {
+    let [results, fields] = await connection.query('SELECT * FROM `rice_4_man`.`posts` WHERE idPots = ?;', [id])
+    return results
+}
 const queryCreatePosts = async (idPots, thumbNail, content, author, postingDate, anHien, noiBat, title, slug) => {
     let [results, fields] = await connection.query(
         'INSERT INTO `rice_4_man`.`Posts` (`idPots`, `thumbNail`, `content`, `author`, `postingDate`, `anHien`, `noiBat`, `title`, `slug`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
@@ -32,5 +35,6 @@ const queryUpdatePost = async (idPots, thumbNail, content, author, postingDate, 
 
 module.exports = {
     //get
-    getAllPosts, queryCreatePosts, deletePostById, queryUpdatePost,
+    getAllPosts, getpostsById,
+    queryCreatePosts, deletePostById, queryUpdatePost,
 }
