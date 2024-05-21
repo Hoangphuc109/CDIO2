@@ -8,7 +8,9 @@ const { getproduct, getproductid, getproducttype, getproductnb
 //Get Product
 const getProducts = async (req, res) => {
     let results = await getproduct()
-    return res.render('createtest', { ListProduct: results })
+    // return res.render('createtest', { ListProduct: results })
+    return res.json({ Product: results })
+
 }
 
 //get Product by Id 

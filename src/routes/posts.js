@@ -23,7 +23,7 @@ router.post('/createPosts', createPosts)
 
 router.delete('/deletePosts/:id', deletePosts)
 //update
-router.put('/updatePosts', updatePost)
+router.put('/updatePosts/:id', updatePost)
 
 
 

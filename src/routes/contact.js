@@ -24,7 +24,7 @@ router.post('/createContact', createContact)
 router.delete('/deleteContact/:id', deleteContact)
 //update
 
-router.put('/updateContact', updateContact)
+router.put('/updateContact/:id', updateContact)
 
 
 

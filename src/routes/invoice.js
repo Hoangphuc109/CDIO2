@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/', getAllInvoices);
 router.get('/:id', getInvoiceId)
 router.post('/createInvoice', createInvoice);
-router.put('/updateInvoice', updateInvoice);
+router.put('/updateInvoice/:id', updateInvoice);
 router.delete('/deleteInvoice/:id', deleteInvoice);
 
 

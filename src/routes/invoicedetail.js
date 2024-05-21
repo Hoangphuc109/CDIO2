@@ -13,7 +13,7 @@ const router = express.Router();
 router.get('/', getAllInvoiceDetails);
 router.get('/:id', getInvoiceDetailsId)
 router.post('/createInvoiceDetail', upload.single('urlImage'), createInvoiceDetail);
-router.put('/updateInvoiceDetail', upload.single('urlImage'), updateInvoiceDetail);
+router.put('/updateInvoiceDetail/:id', upload.single('urlImage'), updateInvoiceDetail);
 router.delete('/deleteInvoiceDetail/:id', deleteInvoiceDetail);
 
 

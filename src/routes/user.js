@@ -26,7 +26,7 @@ router.post('/createUser', upload.single('avatar'), createUser)
 router.delete('/deleteUser/:id', deleteUser)
 //update
 
-router.put('/updateUser', upload.single('avatar'), updateUserById)
+router.put('/updateUser/:id', upload.single('avatar'), updateUserById)
 
 
 
